@@ -17,4 +17,4 @@ for i in sentence_list:
     if i in topic:
         counter  = counter+1
         print(counter)
-       
+      

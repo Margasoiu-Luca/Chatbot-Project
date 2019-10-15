@@ -1,5 +1,5 @@
-### Python chatbot project, 
-### Part of the Group project class at Coventry University
+### Python chatbot project
+### Part of the Computer Science Activity Led Learning at Coventry University
 ### Lead Teacher: [Dr. Simon Billings](https://www.coventry.ac.uk/life-on-campus/staff-directory/engineering-environment-and-computing/dr-simon-billings/)
 
 

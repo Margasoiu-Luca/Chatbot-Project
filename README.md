@@ -3,4 +3,4 @@
 ### Lead Teacher: [Simon Billings](https://www.coventry.ac.uk/life-on-campus/staff-directory/engineering-environment-and-computing/dr-simon-billings/)
 
 
-#### Project done in collaboration with [Marvin Kelly](https://github.com/kantonio75)
+#### Project done in collaboration with [Marvin Kelly](https://github.com/kantonio75), [Jatin Dhangar](https://github.com/Jxtin21)

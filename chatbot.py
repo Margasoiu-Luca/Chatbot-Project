@@ -50,29 +50,30 @@ sentence = input('lets talk about something! ' )
 weather  = 0
 sentence_list = list(sentence.split(" "))
 cursor.execute('SELECT words FROM weather')
-verify = [row[0] for row in cursor]
-print(verify)
-
+verify1 = [row[0] for row in cursor]
+print(verify1)
 for i in sentence_list:
-    if i in verify:
+    if i in verify1:
         weather  += 1
         print(weather)
 
-    
+sport  = 0
+sentence_list = list(sentence.split(" "))
+cursor.execute('SELECT words FROM sport')
+verify2 = [row[0] for row in cursor]
+print(verify2)
+for j in sentence_list:
+    if j in verify2:
+        sport  = sport+1
+        print(sport)
 
-#sport  = 0
-#sentence_list = list(sentence.split(" "))
-#for i in sentence_list:
-#    print (i)
-#    if i in topic:
-#        sport  = sport+1
-#        #print(counter)
-
-#games  = 0
-#sentence_list = list(sentence.split(" "))
-#for i in sentence_list:
-#    print (i)
-#    if i in topic:
-#        games  = games+1
-        #print(counter)
+games  = 0
+sentence_list = list(sentence.split(" "))
+cursor.execute('SELECT words FROM games')
+verify3 = [row[0] for row in cursor]
+print(verify3)
+for j in sentence_list:
+    if j in verify3:
+        games  = games+1
+        print(games)
        

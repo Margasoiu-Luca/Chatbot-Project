@@ -51,29 +51,44 @@ weather  = 0
 sentence_list = list(sentence.split(" "))
 cursor.execute('SELECT words FROM weather')
 verify1 = [row[0] for row in cursor]
-print(verify1)
 for i in sentence_list:
     if i in verify1:
         weather  += 1
-        print(weather)
 
 sport  = 0
 sentence_list = list(sentence.split(" "))
 cursor.execute('SELECT words FROM sport')
 verify2 = [row[0] for row in cursor]
-print(verify2)
-for j in sentence_list:
-    if j in verify2:
+for i in sentence_list:
+    if i in verify2:
         sport  = sport+1
-        print(sport)
 
 games  = 0
 sentence_list = list(sentence.split(" "))
 cursor.execute('SELECT words FROM games')
 verify3 = [row[0] for row in cursor]
-print(verify3)
-for j in sentence_list:
-    if j in verify3:
+for i in sentence_list:
+    if i in verify3:
         games  = games+1
-        print(games)
-       
+
+music  = 0
+sentence_list = list(sentence.split(" "))
+cursor.execute('SELECT words FROM music')
+verify4 = [row[0] for row in cursor]
+for i in sentence_list:
+    if i in verify4:
+        music  = music+1
+
+conversation = 0
+if music > games and music> sport and music> weather:
+    conversation = "Music"
+elif games> music and games> sport and games>weather:
+    conversation = "Games"
+elif sport> music and sport> games and sport> weather:
+    conversation = "Sport"
+elif weather> music and weather>  sport and weather>games:
+    conversation = "Weather"
+else:
+    conversation = "Undetermined"
+    
+print("The main topic of the conversation is:",conversation)

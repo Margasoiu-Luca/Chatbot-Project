@@ -12,14 +12,13 @@ if os.path.isfile('userinfo.db') is False:
     username TEXT NOT NULL,
     password TEXT NOT NULL,
     firstname TEXT NOT NULL,
-    lastname TEXT NOT NULL);
+    lastname TEXT NOT NULL,
+    favteam TEXT NOT NULL,
+    favplayer TEXT NOT NULL);
     ''')                                                #Creates the table if it does not exist in the database    
-    cursor.execute('''
-    INSERT INTO logindetails(username,password,firstname,lastname)
-    VALUES('RootUser','RootPassword','Root','Root')
-    ''')                                                #Inserts specified data into the table
-    userinfo_db.commit()                             #Commits the statements, which saves changes made
-    userinfo_db.close()                              #Closes the database  
+
+    userinfo_db.commit()                                #Commits the statements, which saves changes made
+    userinfo_db.close()                                 #Closes the database  
 
 def start():
     user_info_db = sqlite3.connect('userinfo.db')
@@ -30,11 +29,13 @@ def start():
         newpassword = input('Please enter a new password: ')
         newfirstname = input('Please enter a new first name: ')
         newlastname = input('Please enter a new last name: ')
-        if len(newusername) == False or len(newpassword)== False or len(newfirstname)== False or len(newlastname)== False:
+        FavTeam = input('Please enter your favourite team: ')
+        FavPlayer = input('Please enter your favourite player: ')
+        if len(newusername) == False or len(newpassword)== False or len(newfirstname)== False or len(newlastname)== False or len(FavTeam)== False or len(FavPlayer)== False:
             print("Please fill in all boxes. Start Again.")
             start()
         else:
-            if (newusername.isalpha() and newpassword.isalpha()) is False:    
+            if newfirstname.isalpha() is False or newlastname.isalpha() is False:    
                 print("First Name and Last Name must be characters. Start Again")
                 start()
             else:
@@ -44,11 +45,13 @@ def start():
                 if exists:
                     print("Username already exists. Start Again.")
                 else:
-                    cursor.execute('''INSERT INTO logindetails(username,password,firstname,lastname)
-                                   VALUES(?,?,?,?)''',[newusername,newpassword,newfirstname,newlastname])
+                    cursor.execute('''INSERT INTO logindetails(username,password,firstname,lastname,favteam,favplayer)
+                                   VALUES(?,?,?,?,?,?)''',[newusername,newpassword,newfirstname,newlastname,FavTeam,FavPlayer])
                     user_info_db.commit()
                     print("New User Created")
                     print("Welcome",newfirstname,newlastname)
+                    print("Your favourite team is:",FavTeam)
+                    print("Your favourite player is:",FavPlayer)
         
                 
     elif startup == 'n':
@@ -63,6 +66,8 @@ def start():
             for i in verify:
                 name = (i[3],i[4])
                 print("Welcome",name)
+                print("Your favourite team is:",i[5])
+                print("Your favourite player is:",i[6])
                 
         else:
             print('Denied')

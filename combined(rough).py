@@ -1,5 +1,4 @@
 import tweepy as tw
-import pandas as pd
 import requests
 import json
 import sqlite3

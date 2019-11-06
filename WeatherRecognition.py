@@ -4,7 +4,6 @@ def chatbot():
     print("Hello i am ChatBot. I can forecast the weather, tell the time")
     print(" anywhere in the world and give you sports fixtures and news.")
     command = input("What would you like? ").lower()
-    #Weather ---- Parts of this Code is copied from https://www.youtube.com/watch?v=lcWfSn6-m_8
     location = input("Enter Location ")
     webadd = "http://api.openweathermap.org/data/2.5/weather?appid=9777aeb5531c2d51d999a49783fb454d&q="
     url = webadd+location
